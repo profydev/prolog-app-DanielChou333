@@ -12,6 +12,25 @@ const Header = styled.header`
   background: white;
 `;
 
+const Link = styled.a`
+  text-decoration: none;
+  font-weight: 500;
+  color: gray;
+  font-size: 16px
+`;
+
+const StyledLink = styled(Link)`
+  color:white;
+`;
+
+const Navigation = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+`;
+
 const ContactButton = styled.button`
   position: absolute;
   bottom: 2.5rem;
@@ -28,14 +47,33 @@ const ContactButton = styled.button`
   }
 `;
 
+const DashboardButton = styled.button`
+  background: #7F56D9;
+  width: 165px;
+  height: 44px;
+  border: 1px solid #7F56D9;
+  padding: 0;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;       
+
+`;
+
 const IssuesPage = () => {
   return (
+    <>
     <div>
       <Header>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/logo-large.svg" alt="Prolog logo" />
-        <a href={Routes.projects}>Dashboard</a>
+        <Navigation>
+            <Link href={Routes.home}>Home</Link>
+            <Link href={Routes.products}>Products</Link>
+            <Link href={Routes.documentation}>Documentation</Link>
+            <Link href={Routes.pricing}>Pricing</Link>
+        </Navigation>
+        <DashboardButton ><StyledLink href={Routes.projects} >Open Dashboard</StyledLink></DashboardButton>
       </Header>
+      
       <ContactButton
         onClick={() =>
           alert(
@@ -47,6 +85,10 @@ const IssuesPage = () => {
         <img src="/icons/message.svg" alt="Contact" />
       </ContactButton>
     </div>
+    
+    <section>
+    </section>
+    </>
   );
 };
 
